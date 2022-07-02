@@ -3,11 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faBars, faShoppingCart, faTimes, faBolt, faBookOpen, faTags, faStar, faStarHalfAlt, faArrowLeft, faUser, faHouse, faCar, faUsers, faCircle,faHeadset, faGasPump, faCarBattery, faCarBurst, faScrewdriverWrench,faEnvelope, faLocationDot, faPhoneFlip, faArrowRight,faAngleRight, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faFacebook, faTwitter, faInstagram, faLinkedin, faPinterest, faFacebookF, faYoutube} from '@fortawesome/free-brands-svg-icons'
+import { BrowserRouter as Router } from 'react-router-dom';
+
+
+library.add(faBars, faShoppingCart, faTimes, faBolt, faBookOpen, faTags, faStar, faStarHalfAlt, faArrowLeft, faUser, faHouse, faCar, faUsers, faCircle,faHeadset, faGasPump, faCarBattery, faCarBurst, faScrewdriverWrench,faEnvelope, faLocationDot, faPhoneFlip, faFacebook, faTwitter, faInstagram, faLinkedin, faPinterest, faFacebookF, faYoutube, faArrowRight,faAngleRight, faSpinner )
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+   <Router>
+      <App />
+   </Router> 
   </React.StrictMode>
 );
 
