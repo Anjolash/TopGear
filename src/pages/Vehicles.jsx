@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import FeaturedCar from '../components/ui/FeaturedCar';
-import { useParams } from 'react-router-dom';
 
 const Vehicles = ({cars: initialCars, addToCart, cart}) => {
     const [cars, setCars] = useState(initialCars);
     let isMenuOpen = false;
-    const [checked, setChecked] = useState([]);
+    const [checked] = useState([]);
     const NoOfCylinders = [1, 2, 3, 4, 6, 8];
     const Year = ["2022", "2021", "2020", "2019", "2018", "2017"];
     const FuelType = ["Petrol", "Diesel", "Electric", "Gas", "Hybrid"];
@@ -14,7 +13,6 @@ const Vehicles = ({cars: initialCars, addToCart, cart}) => {
     const Transmission = ["Automatic", "Manual 5 Speed", "Manual 6 Speed"];
     const PriceRange = ["100000+", "80000 - 99999", "55000 - 79999", "40000 - 54999", "<40000"];
 
-    const { id } = useParams();
     
     
        
@@ -255,11 +253,6 @@ const Vehicles = ({cars: initialCars, addToCart, cart}) => {
       
     
       // Generate string of checked items
-      const checkedItems = checked.length
-        ? checked.reduce((total, item) => {
-            return total + ", " + item;
-          })
-        : "";
     
       // Return classes based on whether item is checked
       var isChecked = (item) =>
