@@ -7,7 +7,7 @@ const CardStats = () => {
             <div className="container">
                 <div className="row">
                     <div className="card__container">
-                        <div className="card">
+                        <div className="cardnotboot">
                             <div className="icon">
                                 <FontAwesomeIcon icon="house"></FontAwesomeIcon>
                             </div>
@@ -17,7 +17,7 @@ const CardStats = () => {
                             </div>
                         </div>
 
-                        <div className="card">
+                        <div className="cardnotboot">
                             <div className="icon">
                                 <FontAwesomeIcon icon="car"></FontAwesomeIcon>
                            </div>
@@ -27,7 +27,7 @@ const CardStats = () => {
                             </div>
                         </div>
 
-                        <div className="card">
+                        <div className="cardnotboot">
                             <div className="icon">
                                 <FontAwesomeIcon icon="users"></FontAwesomeIcon>
                           </div>
@@ -37,7 +37,7 @@ const CardStats = () => {
                             </div>
                         </div>
 
-                        <div className="card">
+                        <div className="cardnotboot">
                             <div className="icon">
                                 <FontAwesomeIcon icon="car"></FontAwesomeIcon>
                             </div>

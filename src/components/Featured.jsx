@@ -46,7 +46,7 @@ const Featured = () => {
                           grabCursor={true}
                           loop={true}
                           autoplay={
-                            {delay: 6500,
+                            {delay: 65000,
                             disableOnInteraction:false}
                           }
                           

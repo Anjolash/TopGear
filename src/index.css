@@ -186,9 +186,12 @@ nav{
     font-size: 28px;
 }
 
-.login{
+.login, .login2{
     font-size: 16px;
+    visibility: hidden;
 }
+
+
 
 .section__header{
     text-align: center;
@@ -221,7 +224,34 @@ nav{
     bottom: -2px;
     right: 20px;
     pointer-events: none;
-  }
+}
+
+.button-visible{
+    visibility: visible;
+}
+
+.dropdown-label{
+    border-radius: 50%;
+    overflow: hidden;
+    height: 50px;
+    width: 50px;
+    background-color: #ffee80;
+    border-color: #ffee80;
+    color: black;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.dropdown-label:hover{
+    background-color: #130f40;
+}
+
+
+.toggle-no-arrow::after {
+    display: none !important;
+}
+
 
 
 /*
@@ -291,6 +321,14 @@ menu
     color: ghostwhite;
 }
 
+.df{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 
 
 /*
@@ -299,35 +337,61 @@ login form
 
 */
 
-.login__form--open{
+.login__form--open,
+.signup__form--open{
     transition: all 300ms ease;
 }
 
-.login__form--open .login__form--container{
+.login__form--open .login__form--container,
+.signup__form--open .signup__form--container{
     visibility: visible;
     opacity: 1 !important;
 }
 
-.login__form--open nav .login__form--container{
+.login__form--open nav .login__form--container,
+.signup__form--open nav .signup__form--container{
     visibility: visible;
     opacity: 1 !important;
 }
 
 
-.login__form--open section{
+.login__form--open section,
+.signup__form--open section{
     opacity: 0.5;
     transition: all 300ms ease;
 }
 
 
-.login__form--container{
+.login__form--container,
+.signup__form--container{
     position: fixed; 
     left: 50%;
     top: 50%;
     transform: translate(-50%, 0%);
     width: 100%;
     max-width: 500px;
-    height: 500px;
+    height: 720px;
+    max-height: 720px;   
+    box-shadow: 0 4px 32px 0 rgb(0, 0, 0.05);
+    background-color: rgb(245, 245, 246);
+    display: flex;
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    z-index: 4;
+    transition: visibility 0s, z-index 1s, box-shadow 0.5s ease;
+
+}
+
+.signup__form--container{
+    position: fixed; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+    width: 100%;
+    max-width: 500px;
+    height: 560px;
     max-height: 580px;   
     box-shadow: 0 4px 32px 0 rgb(0, 0, 0.05);
     background-color: rgb(245, 245, 246);
@@ -341,14 +405,16 @@ login form
 
 }
 
-.login__form{
+.login__form,
+.signup__form{
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
 }
 
-.login__form--input{
+.login__form--input,
+.signup__form--input{
     border: rgb(100, 98, 98) 1px solid;
     border-radius: 8px;
     opacity: 0.4;
@@ -372,13 +438,15 @@ login form
 
 
 
-.login__para{
+.login__para,
+.signup__para{
     margin-top: 20px;
     opacity: 1;
 }
 
 
-.login__form--button{
+.login__form--button,
+.signup__form--button{
     margin-top: 24px;
     font-size: 24px;
     width: 200px;
@@ -401,14 +469,88 @@ header
 header{
     height: 800px;
     position: relative;
-    
 }
 
 .Title{
     text-align: center;
-    font-size: 110px;
+    font-size: 72px;
     color: #130f40;
 }
+
+
+.mask{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all 200ms ease;
+    z-index: 1;
+}
+
+.background-dark{
+    background-color:  #1a1a1a !important;
+    z-index: 1;
+}
+
+.opacity-75{
+    z-index: 1;
+    opacity: 0.75;
+    mix-blend-mode: multiply;
+}
+
+.z-index-11{
+    position: relative;
+    z-index: 11 !important;
+}
+
+
+#myVideo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 800px;
+    padding-bottom: 40px;
+    width: 98vw;
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+    animation: fadeOut ease 4s 7s 1 forwards;
+}
+
+.hidden{
+    opacity: 0;
+    padding-top: 20px;
+    visibility: hidden;
+    animation: fadeIn ease 4s 7s 1 forwards;
+}
+
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
 
 .header__container{
     padding-top: 60px;
@@ -417,7 +559,7 @@ header{
 
 .landing__img--container{    
     width: 100%;
-    max-width: 1250px;
+    max-width: 1140px;
     margin: 0 auto;
     margin-top: 48px;
     margin-bottom: 40px;
@@ -454,7 +596,7 @@ card thingy
     margin: 0 auto;
 }
 
-.card{
+.cardnotboot{
     background-color: rgb(245, 245, 246);
     width: 300px;
     height: 100px;
@@ -466,16 +608,16 @@ card thingy
     transition: all 500ms ease;
 }
 
-.card:hover{
+.cardnotboot:hover{
     background-color: #130f40;
     color: ghostwhite;
 }
 
-.card:hover .icon{
+.cardnotboot:hover .icon{
     background-color: #eed00c;
 }
 
-.card:hover .yellow{
+.cardnotboot:hover .yellow{
     color: ghostwhite;
 }
 
@@ -538,7 +680,7 @@ popular
     width: 200px;
     display: flex;
     justify-content: center;
-    
+    font-size: 12px;
 }
 
 .popular__cars  .popular__car--img{
@@ -688,7 +830,6 @@ OUR SERVICES
 
 .our__services--para{
     padding-top: 20px;
-    padding-bottom: 24PX;
 }
 
 
@@ -787,7 +928,7 @@ SUBSCRIBE
     border-radius: 50px;    
     left: 534px;
     bottom: 2px;
-    
+    font-size: 13px;
 }
 
 
@@ -1203,7 +1344,10 @@ BOOKS PAGE
         font-size: 1;
         display: flex;
         flex-direction: column;
+}
 
+    .model__info{
+        font-size: 18px;
     }
 
       #filtercontainer{
@@ -1712,12 +1856,10 @@ BOOKS PAGE
         
     }
 
-    .card{
-        
+    .cardnotboot{
         width: 200px;
         height: 100px;
         margin-bottom: 40px;
-        
     }
 
     /*subscribe*/
@@ -1975,7 +2117,7 @@ BOOKS PAGE
     }
 
     .Title{
-        font-size: 56px;
+        font-size: 44px;
     }
 
     .section__header{

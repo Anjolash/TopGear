@@ -57,13 +57,8 @@ const Review = () => {
                                 <Reviewjs customerReviews={customerReviews} key={customerReviews.id} />
                             </SwiperSlide>
                         ))} 
-
                         </Swiper>
             
-                              
-
-                            
-
                             
                         
                         

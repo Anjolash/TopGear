@@ -9,7 +9,10 @@ import Vehicles from './pages/Vehicles';
 import VehicleInfo from './pages/VehicleInfo';
 import { useEffect, useState } from 'react';
 import Cart from './pages/Cart';
-
+import Tesot from './pages/Tesot';
+import { AuthProvider } from "./contexts/AuthContext"
+import ForgotPassword from './pages/ForgotPassword';
+import UpdateProfile from './pages/UpdateProfile'
 
 const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart") || "[]" )
 const App=() => {
@@ -27,7 +30,7 @@ const App=() => {
 
   function changeQuantity(book, quantity){
     setCart(cart.map(item => 
-       item.id === book.id
+        item.id === book.id
         ? {
           ...item,
           quantity: +quantity,
@@ -61,7 +64,7 @@ const App=() => {
       }, 0);
     }
   }, [pathname, hash, key]); // do this on route change
- 
+
   const match = matchPath(
     { path: "/vehicles/:id" },
     location.pathname,
@@ -82,17 +85,20 @@ const App=() => {
   return (
     
       <div className="App">
-        
-        <Nav numberOfItems={numberOfItems()} />
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/vehicles" exact element={<Vehicles cars={cars} cart={cart} addToCart={addToCart}/>} />
-          <Route path="/vehicles/:id" exact element={ <VehicleInfo cars={cars} cart={cart} addToCart={addToCart} /> } />
-          <Route path="/cart" element={<Cart cars={cars} cart={cart} changeQuantity={changeQuantity} removeItem={removeItem}  />} />
-        </Routes>
+        <AuthProvider>
+          <Nav numberOfItems={numberOfItems()} />
+          <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/vehicles" exact element={<Vehicles cars={cars} cart={cart} addToCart={addToCart}/>} />
+              <Route path="/vehicles/:id" exact element={ <VehicleInfo cars={cars} cart={cart} addToCart={addToCart} /> } />
+              <Route path="/cart" element={<Cart cars={cars} cart={cart} changeQuantity={changeQuantity} removeItem={removeItem}  />} />
+              <Route path="/test" exact element={<Tesot />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/update-profile" element={<UpdateProfile />} />
+          </Routes>
+          </AuthProvider>
           
           {!match &&  <Footer />}
-       
       </div>
     
   );
