@@ -222,7 +222,7 @@ const Nav = ({ numberOfItems}) => {
                             </div>
                             <p className="login__para"> don't have an account?  </p>
                         </form>
-                        <button className='login button-visible' onClick={toggleSignUpForm}> Sign Up </button>
+                        <button className='login2 button-visible' onClick={toggleSignUpForm}> Sign Up </button>
                     </div>    
                 </div>
                 <div className="signup__form--container">
